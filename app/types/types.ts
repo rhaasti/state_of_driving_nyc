@@ -16,13 +16,18 @@ export interface MovingViolation {
     violation_code: string;
     violation_date: string;
     violation_description: string;
+    violation_category: string;
     violation_time: string;
     x_coord_cd: string;
     y_coord_cd: string;
 }
 
-export interface DescriptionObj {
+export interface DescriptionLookup {
     [key: string]: string
+}
+
+export interface CategoryLookup {
+    [key:string]: string[]
 }
 
 export interface MovingViolationCollection {

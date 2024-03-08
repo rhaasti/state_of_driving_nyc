@@ -17,7 +17,7 @@ export const SpeedComponent = () => {
   const [movingViolationCollection, setMovingViolationCollection] =
     useState<MovingViolationCollection | null>(null);
 
-    console.log(movingViolationCollection)
+
 
   const movingViolationQuery = useQuery({
     queryKey: ["movingViolation"],
@@ -38,12 +38,12 @@ export const SpeedComponent = () => {
         maxDateTemp = element.violation_date;
       }
 
-      if (movingViolationCollectionTempObj[element.violation_description]) {
-        movingViolationCollectionTempObj[element.violation_description].push(
+      if (movingViolationCollectionTempObj[element.violation_category]) {
+        movingViolationCollectionTempObj[element.violation_category].push(
           element
         );
       } else {
-        movingViolationCollectionTempObj[element.violation_description] = [];
+        movingViolationCollectionTempObj[element.violation_category] = [];
       }
     });
 
@@ -51,11 +51,11 @@ export const SpeedComponent = () => {
     //    entriesToSort.sort((a, b) => {
     //     return b[1] - a[1]
     //    })
-  
+
     //    console.log(entriesToSort)
-  
+
     //    const sortedDescriptionStats = {}
-  
+
     //    entriesToSort.forEach((element) => {
     //     sortedDescriptionStats[element[0]] = element[1]
     //    })
@@ -69,7 +69,8 @@ export const SpeedComponent = () => {
   }, [movingViolationQuery.data]);
 
 
-
+  console.log(dateRange)
+  console.log(movingViolationCollection)
 
   return (
     <div>
