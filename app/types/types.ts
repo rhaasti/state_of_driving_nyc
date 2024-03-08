@@ -14,7 +14,7 @@ export interface MovingViolation {
     rpt_owning_cmd: string;
     veh_category: string;
     violation_code: string;
-    violation_date: string;
+    violation_date: Date;
     violation_description: string;
     violation_category: string;
     violation_time: string;

@@ -17,8 +17,6 @@ export const SpeedComponent = () => {
   const [movingViolationCollection, setMovingViolationCollection] =
     useState<MovingViolationCollection | null>(null);
 
-
-
   const movingViolationQuery = useQuery({
     queryKey: ["movingViolation"],
     queryFn: useMovingViolationQuery,
@@ -26,15 +24,15 @@ export const SpeedComponent = () => {
 
   useEffect(() => {
     const movingViolationCollectionTempObj: MovingViolationCollection = {};
-    let minDateTemp = "";
-    let maxDateTemp = "";
+    let minDateTemp: Date | null = null;
+    let maxDateTemp: Date | null = null;
 
     movingViolationQuery.data?.forEach((element: MovingViolation) => {
-      if (minDateTemp === "" || element.violation_date < minDateTemp) {
+      if (!minDateTemp || element.violation_date < minDateTemp) {
         minDateTemp = element.violation_date;
       }
 
-      if (maxDateTemp === "" || element.violation_date > maxDateTemp) {
+      if (!maxDateTemp || element.violation_date > maxDateTemp) {
         maxDateTemp = element.violation_date;
       }
 
@@ -47,30 +45,16 @@ export const SpeedComponent = () => {
       }
     });
 
-    //    const entriesToSort = Object.entries(descriptionStats)
-    //    entriesToSort.sort((a, b) => {
-    //     return b[1] - a[1]
-    //    })
-
-    //    console.log(entriesToSort)
-
-    //    const sortedDescriptionStats = {}
-
-    //    entriesToSort.forEach((element) => {
-    //     sortedDescriptionStats[element[0]] = element[1]
-    //    })
-
     setDateRange({
-      minDate: new Date(minDateTemp),
-      maxDate: new Date(maxDateTemp),
+      minDate: minDateTemp,
+      maxDate: maxDateTemp,
     });
 
     setMovingViolationCollection(movingViolationCollectionTempObj);
   }, [movingViolationQuery.data]);
 
-
-  console.log(dateRange)
-  console.log(movingViolationCollection)
+  console.log(dateRange);
+  console.log(movingViolationCollection);
 
   return (
     <div>
