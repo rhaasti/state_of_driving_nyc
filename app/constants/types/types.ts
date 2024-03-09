@@ -14,7 +14,7 @@ export interface MovingViolation {
     rpt_owning_cmd: string;
     veh_category: string;
     violation_code: string;
-    violation_date: string;
+    violation_date: Date;
     violation_description: string;
     violation_category: string;
     violation_time: string;
@@ -30,6 +30,10 @@ export interface CategoryLookup {
     [key:string]: string[]
 }
 
+export interface ViolationsByYear {
+    [key: string]: number
+}
+
 export interface MovingViolationCollection {
     [key: string]: MovingViolation[]
 }
@@ -39,4 +43,8 @@ export interface DateRange {
     maxDate: Date | null;
 }
 
-
+export interface BarChartProps {
+    width: number;
+    height: number;
+    data: MovingViolation[]
+}

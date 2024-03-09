@@ -3,7 +3,7 @@ import {
   categoryLookup,
   acceptedViolationCodes
 } from "./violationCodeDescriptions/violationCodeDescriptions";
-import { MovingViolation } from "../types/types";
+import { MovingViolation } from "../constants/types/types";
 
 export const useMovingViolationQuery = async () => {
   try {
@@ -26,6 +26,7 @@ export const useMovingViolationQuery = async () => {
 
     filteredTotalData.forEach((element: MovingViolation) => {
       element.violation_description = descriptionLookup[element.violation_code];
+      element.violation_date = new Date(element.violation_date)
 
       for (let key in categoryLookup) {
         if(categoryLookup[key].includes(element.violation_code)) {
