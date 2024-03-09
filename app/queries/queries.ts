@@ -3,7 +3,7 @@ import {
   categoryLookup,
   acceptedViolationCodes
 } from "./violationCodeDescriptions/violationCodeDescriptions";
-import { MovingViolation } from "../types/types";
+import { MovingViolation } from "../constants/types/types";
 
 export const useMovingViolationQuery = async () => {
   try {

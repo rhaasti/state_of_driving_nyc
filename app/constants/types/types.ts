@@ -30,6 +30,10 @@ export interface CategoryLookup {
     [key:string]: string[]
 }
 
+export interface ViolationsByYear {
+    [key: string]: number
+}
+
 export interface MovingViolationCollection {
     [key: string]: MovingViolation[]
 }
@@ -39,4 +43,8 @@ export interface DateRange {
     maxDate: Date | null;
 }
 
-
+export interface BarChartProps {
+    width: number;
+    height: number;
+    data: MovingViolation[]
+}

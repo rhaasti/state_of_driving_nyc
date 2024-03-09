@@ -1,4 +1,4 @@
-import { DescriptionLookup, CategoryLookup } from "../../types/types";
+import { DescriptionLookup, CategoryLookup } from "../../constants/types/types";
 
 export const categoryLookup: CategoryLookup = {
   'RECKLESS DRIVING': ["402C", "1110A", "412P2", "407C", "1225A", "407H1", "1127A", "404D", "403C1", "404B", "403A1", "403A3II", "1160C", "1160B", "1160A", "1163AT", "1128A", "1122A"],
